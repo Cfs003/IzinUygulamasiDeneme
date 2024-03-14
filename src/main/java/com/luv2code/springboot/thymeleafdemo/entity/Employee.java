@@ -26,6 +26,9 @@ public class Employee {
 	
 	@Column(name="email")
 	private String email;
+
+	@Column(name="leave_period")
+	private int leavePeriod;
 	
 		
 	// define constructors
@@ -34,18 +37,20 @@ public class Employee {
 		
 	}
 	
-	public Employee(int id, String firstName, String lastName, String email) {
+	public Employee(int id, String firstName, String lastName, String email,int leavePeriod) {
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.leavePeriod = leavePeriod;
 	}
 
 
-	public Employee(String firstName, String lastName, String email) {
+	public Employee(String firstName, String lastName, String email, int leavePeriod) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.leavePeriod = leavePeriod;
 	}
 
 	// define getter/setter
@@ -82,11 +87,19 @@ public class Employee {
 		this.email = email;
 	}
 
+	public int getLeavePeriod() {
+		return leavePeriod;
+	}
+
+	public void setLeavePeriod(int leavePeriod) {
+		this.leavePeriod = leavePeriod;
+	}
+
 	// define tostring
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", leavePeriod=" +leavePeriod +"]";
 	}
 		
 }
