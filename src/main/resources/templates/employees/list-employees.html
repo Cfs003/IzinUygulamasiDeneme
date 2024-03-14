@@ -16,22 +16,23 @@
 
 <div class="container">
 
-	<h3>Employee Directory</h3>
+	<h3>Çalışan Dizini</h3>
 	<hr>
 
 	<!-- Add a button -->
 	<a th:href="@{/employees/showFormForAdd}"
 		class="btn btn-primary btn-sm mb-3">
-		Add Employee
+		Çalışan Ekle
 	</a>
 
 	<table class="table table-bordered table-striped">
 		<thead class="table-dark">
 			<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
+				<th>Ad</th>
+				<th>Soyad</th>
 				<th>Email</th>
-				<th>Action</th>
+				<th>İzin Hakkı</th>
+				<th>Aksiyon</th>
 			</tr>
 		</thead>
 		
@@ -41,26 +42,36 @@
 				<td th:text="${tempEmployee.firstName}" />	
 				<td th:text="${tempEmployee.lastName}" />	
 				<td th:text="${tempEmployee.email}" />
+				<td th:text="${tempEmployee.leavePeriod}" />
 
 				<!-- Add update button/link -->
 				<td>
 					<a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
 					   class="btn btn-info btn-sm">
-						Update
+						Güncelle
 					</a>
 
 					<!-- Add "delete" button/link -->
 					<a th:href="@{/employees/delete(employeeId=${tempEmployee.id})}"
 					   class="btn btn-danger btn-sm"
-					   onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
-						Delete
+					   onclick="if (!(confirm('Silmek istediğinizden emin misiniz?'))) return false">
+						Sil
 					</a>
 				</td>
 
 			</tr>
 		</tbody>		
 	</table>
-	
+
+	<hr>
+	<!-- Add a logout button -->
+	<form action="#" th:action="@{/logout}"
+		  method="POST">
+
+		<input type="submit" value="Çıkış Yap" class="btn btn-outline-primary mt-2" />
+
+	</form>
+
 </div>
 	
 </body>
